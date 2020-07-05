@@ -1,10 +1,6 @@
 #pragma once
+#define size 100
 using namespace System;
-// Класс не имеет методов ввода и вывода. 
-// Визуализация - на элементах управления формы:
-// 1. Описаны свойства property.
-// 2. Перегружен метод ToString.
-// 3. Есть метод Set, он закомментирован.
 
 public ref class My_Point {
 	float x, y;		// Координаты точки.
@@ -50,7 +46,7 @@ public:
 		this->m = mm;
 		if (!this->check()) this->m = 1;
 	}
-	virtual String^ ToString_m() override;
+	//virtual String^ ToString() override;
 
 	property float M {
 		float get() {
@@ -60,8 +56,50 @@ public:
 			m = M;
 		}
 	}
-	//bool h(my_material_point);
 	bool operator < (my_material_point^);
 	bool operator > (my_material_point^);
 	bool operator ==(my_material_point^);
+	my_material_point^ operator=(my_material_point^ object);
+};
+public ref class my_system_point
+{
+	array <my_material_point^>^ sys_point = gcnew array <my_material_point^>(size);
+	int len;
+	bool Check()
+	{
+		return len >= 0;
+	}
+public:
+	my_system_point()
+	{
+		this->len = 0;
+	}
+	my_system_point(int len)
+	{
+		this->len = len;
+		if (Check())
+		{
+			for (int i = 0; i < this->len; i++)
+			{
+				this->sys_point[i] = gcnew my_material_point();
+			}
+		}
+		this->len = 0;
+
+	}
+	void View(System::Windows::Forms::DataGridView^ DGV);
+	bool empty();
+	bool full();
+	bool del(double);
+	bool add(my_material_point^);
+	double m_sum();
+	my_material_point^ find_max();
+	property int Len {
+		int  get() {
+			return len;
+		}
+		void set(int l) {
+			len = l;
+		}
+	}
 };

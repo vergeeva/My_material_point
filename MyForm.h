@@ -21,6 +21,8 @@ namespace SuperPoint {
 			//
 			A = gcnew my_material_point(100, 100, 100);
 			B = gcnew my_material_point(100, 100, 100);
+			C = gcnew my_system_point(100);
+			value = gcnew my_material_point(1, 1, 1);
 		}
 
 
@@ -37,6 +39,8 @@ namespace SuperPoint {
 		}
 		my_material_point^ A;
 		my_material_point^ B;
+		my_system_point^ C;
+		my_material_point^ value;
 	private: System::Windows::Forms::Label^ label1;
 	protected:
 	private: System::Windows::Forms::TextBox^ textBox1;
@@ -74,14 +78,17 @@ namespace SuperPoint {
 	private: System::Windows::Forms::Label^ label13;
 	private: System::Windows::Forms::TextBox^ textBox16;
 	private: System::Windows::Forms::DataGridView^ dataGridView1;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column1;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column2;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
+
+
+
 	private: System::Windows::Forms::TextBox^ textBox17;
 	private: System::Windows::Forms::Label^ label14;
 	private: System::Windows::Forms::GroupBox^ groupBox1;
 	private: System::Windows::Forms::Label^ label15;
 	private: System::Windows::Forms::Label^ label16;
+	private: System::Windows::Forms::TextBox^ textBox18;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column2;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
 
 
 
@@ -133,14 +140,14 @@ namespace SuperPoint {
 			this->label13 = (gcnew System::Windows::Forms::Label());
 			this->textBox16 = (gcnew System::Windows::Forms::TextBox());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
-			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->textBox17 = (gcnew System::Windows::Forms::TextBox());
 			this->label14 = (gcnew System::Windows::Forms::Label());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
-			this->label15 = (gcnew System::Windows::Forms::Label());
 			this->label16 = (gcnew System::Windows::Forms::Label());
+			this->label15 = (gcnew System::Windows::Forms::Label());
+			this->textBox18 = (gcnew System::Windows::Forms::TextBox());
+			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->groupBox1->SuspendLayout();
 			this->SuspendLayout();
@@ -184,7 +191,7 @@ namespace SuperPoint {
 			this->textBox3->Enabled = false;
 			this->textBox3->Location = System::Drawing::Point(7, 259);
 			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(112, 22);
+			this->textBox3->Size = System::Drawing::Size(170, 22);
 			this->textBox3->TabIndex = 7;
 			this->textBox3->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
@@ -207,7 +214,7 @@ namespace SuperPoint {
 			// 
 			// textBox5
 			// 
-			this->textBox5->Location = System::Drawing::Point(191, 197);
+			this->textBox5->Location = System::Drawing::Point(266, 197);
 			this->textBox5->Name = L"textBox5";
 			this->textBox5->Size = System::Drawing::Size(44, 22);
 			this->textBox5->TabIndex = 11;
@@ -215,7 +222,7 @@ namespace SuperPoint {
 			// 
 			// textBox6
 			// 
-			this->textBox6->Location = System::Drawing::Point(191, 169);
+			this->textBox6->Location = System::Drawing::Point(266, 169);
 			this->textBox6->Name = L"textBox6";
 			this->textBox6->Size = System::Drawing::Size(44, 22);
 			this->textBox6->TabIndex = 12;
@@ -223,7 +230,7 @@ namespace SuperPoint {
 			// 
 			// textBox7
 			// 
-			this->textBox7->Location = System::Drawing::Point(191, 225);
+			this->textBox7->Location = System::Drawing::Point(266, 225);
 			this->textBox7->Name = L"textBox7";
 			this->textBox7->Size = System::Drawing::Size(44, 22);
 			this->textBox7->TabIndex = 13;
@@ -232,7 +239,7 @@ namespace SuperPoint {
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(154, 174);
+			this->label4->Location = System::Drawing::Point(201, 174);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(22, 17);
 			this->label4->TabIndex = 14;
@@ -241,7 +248,7 @@ namespace SuperPoint {
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(154, 202);
+			this->label5->Location = System::Drawing::Point(201, 202);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(23, 17);
 			this->label5->TabIndex = 15;
@@ -250,7 +257,7 @@ namespace SuperPoint {
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(130, 228);
+			this->label6->Location = System::Drawing::Point(197, 228);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(55, 17);
 			this->label6->TabIndex = 16;
@@ -259,16 +266,16 @@ namespace SuperPoint {
 			// textBox8
 			// 
 			this->textBox8->Enabled = false;
-			this->textBox8->Location = System::Drawing::Point(147, 259);
+			this->textBox8->Location = System::Drawing::Point(200, 259);
 			this->textBox8->Name = L"textBox8";
-			this->textBox8->Size = System::Drawing::Size(112, 22);
+			this->textBox8->Size = System::Drawing::Size(173, 22);
 			this->textBox8->TabIndex = 17;
 			this->textBox8->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// label7
 			// 
 			this->label7->AutoSize = true;
-			this->label7->Location = System::Drawing::Point(37, 69);
+			this->label7->Location = System::Drawing::Point(18, 79);
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(234, 17);
 			this->label7->TabIndex = 18;
@@ -301,7 +308,7 @@ namespace SuperPoint {
 			// textBox12
 			// 
 			this->textBox12->Enabled = false;
-			this->textBox12->Location = System::Drawing::Point(147, 312);
+			this->textBox12->Location = System::Drawing::Point(236, 312);
 			this->textBox12->Name = L"textBox12";
 			this->textBox12->Size = System::Drawing::Size(112, 22);
 			this->textBox12->TabIndex = 22;
@@ -319,7 +326,7 @@ namespace SuperPoint {
 			// label8
 			// 
 			this->label8->AutoSize = true;
-			this->label8->Location = System::Drawing::Point(21, 284);
+			this->label8->Location = System::Drawing::Point(62, 292);
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(231, 17);
 			this->label8->TabIndex = 24;
@@ -362,7 +369,7 @@ namespace SuperPoint {
 			this->label11->AutoSize = true;
 			this->label11->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label11->Location = System::Drawing::Point(9, 29);
+			this->label11->Location = System::Drawing::Point(60, 29);
 			this->label11->Name = L"label11";
 			this->label11->Size = System::Drawing::Size(215, 25);
 			this->label11->TabIndex = 30;
@@ -373,7 +380,7 @@ namespace SuperPoint {
 			this->label12->AutoSize = true;
 			this->label12->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label12->Location = System::Drawing::Point(652, 29);
+			this->label12->Location = System::Drawing::Point(510, 29);
 			this->label12->Name = L"label12";
 			this->label12->Size = System::Drawing::Size(286, 25);
 			this->label12->TabIndex = 31;
@@ -389,6 +396,7 @@ namespace SuperPoint {
 			this->button1->TabIndex = 32;
 			this->button1->Text = L"Добавить в список";
 			this->button1->UseVisualStyleBackColor = false;
+			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
 			// 
 			// label13
 			// 
@@ -409,43 +417,16 @@ namespace SuperPoint {
 			// dataGridView1
 			// 
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(3) {
-				this->Column1,
-					this->Column2, this->Column3
+			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(2) {
+				this->Column2,
+					this->Column3
 			});
-			this->dataGridView1->Location = System::Drawing::Point(546, 69);
+			this->dataGridView1->Location = System::Drawing::Point(638, 65);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersWidth = 51;
 			this->dataGridView1->RowTemplate->Height = 24;
-			this->dataGridView1->Size = System::Drawing::Size(493, 269);
+			this->dataGridView1->Size = System::Drawing::Size(388, 269);
 			this->dataGridView1->TabIndex = 35;
-			// 
-			// Column1
-			// 
-			this->Column1->Frozen = true;
-			this->Column1->HeaderText = L"№";
-			this->Column1->MinimumWidth = 6;
-			this->Column1->Name = L"Column1";
-			this->Column1->ReadOnly = true;
-			this->Column1->Width = 125;
-			// 
-			// Column2
-			// 
-			this->Column2->Frozen = true;
-			this->Column2->HeaderText = L"Кооординаты";
-			this->Column2->MinimumWidth = 6;
-			this->Column2->Name = L"Column2";
-			this->Column2->ReadOnly = true;
-			this->Column2->Width = 125;
-			// 
-			// Column3
-			// 
-			this->Column3->Frozen = true;
-			this->Column3->HeaderText = L"Масса";
-			this->Column3->MinimumWidth = 6;
-			this->Column3->Name = L"Column3";
-			this->Column3->ReadOnly = true;
-			this->Column3->Width = 125;
 			// 
 			// textBox17
 			// 
@@ -478,21 +459,12 @@ namespace SuperPoint {
 			this->groupBox1->Controls->Add(this->textBox14);
 			this->groupBox1->Controls->Add(this->label10);
 			this->groupBox1->Controls->Add(this->label9);
-			this->groupBox1->Location = System::Drawing::Point(296, 109);
+			this->groupBox1->Location = System::Drawing::Point(388, 90);
 			this->groupBox1->Name = L"groupBox1";
 			this->groupBox1->Size = System::Drawing::Size(244, 191);
 			this->groupBox1->TabIndex = 38;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L" ";
-			// 
-			// label15
-			// 
-			this->label15->AutoSize = true;
-			this->label15->Location = System::Drawing::Point(83, 149);
-			this->label15->Name = L"label15";
-			this->label15->Size = System::Drawing::Size(121, 17);
-			this->label15->TabIndex = 39;
-			this->label15->Text = L"Введите данные:";
 			// 
 			// label16
 			// 
@@ -503,12 +475,48 @@ namespace SuperPoint {
 			this->label16->TabIndex = 40;
 			this->label16->Text = L"Введите данные:";
 			// 
+			// label15
+			// 
+			this->label15->AutoSize = true;
+			this->label15->Location = System::Drawing::Point(120, 145);
+			this->label15->Name = L"label15";
+			this->label15->Size = System::Drawing::Size(121, 17);
+			this->label15->TabIndex = 39;
+			this->label15->Text = L"Введите данные:";
+			// 
+			// textBox18
+			// 
+			this->textBox18->Enabled = false;
+			this->textBox18->Location = System::Drawing::Point(932, 344);
+			this->textBox18->Name = L"textBox18";
+			this->textBox18->Size = System::Drawing::Size(94, 22);
+			this->textBox18->TabIndex = 40;
+			// 
+			// Column2
+			// 
+			this->Column2->Frozen = true;
+			this->Column2->HeaderText = L"Кооординаты";
+			this->Column2->MinimumWidth = 6;
+			this->Column2->Name = L"Column2";
+			this->Column2->ReadOnly = true;
+			this->Column2->Width = 125;
+			// 
+			// Column3
+			// 
+			this->Column3->Frozen = true;
+			this->Column3->HeaderText = L"Масса";
+			this->Column3->MinimumWidth = 6;
+			this->Column3->Name = L"Column3";
+			this->Column3->ReadOnly = true;
+			this->Column3->Width = 125;
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::InactiveBorder;
-			this->ClientSize = System::Drawing::Size(1067, 388);
+			this->ClientSize = System::Drawing::Size(1143, 388);
+			this->Controls->Add(this->textBox18);
 			this->Controls->Add(this->label15);
 			this->Controls->Add(this->groupBox1);
 			this->Controls->Add(this->label14);
@@ -572,7 +580,7 @@ private: System::Void textBox4_KeyDown(System::Object^ sender, System::Windows::
 	if (e->KeyValue == 13 && textBox4->Text != "")
 	{
 		A->M = Convert::ToDouble(this->textBox4->Text);
-		this->textBox9->Text = A->ToString_m();
+		this->textBox9->Text = Convert::ToString(A->M);
 		if (A < B) { this->textBox11->Text = "<"; }
 		else
 		{
@@ -599,7 +607,7 @@ private: System::Void textBox7_KeyDown(System::Object^ sender, System::Windows::
 	if (e->KeyValue == 13 && textBox7->Text != "")
 	{
 		B->M = Convert::ToDouble(this->textBox7->Text);
-		this->textBox10->Text = B->ToString_m();
+		this->textBox10->Text = Convert::ToString(B->M);;
 		if (A < B) { this->textBox11->Text = "<"; }
 		else
 		{
@@ -623,9 +631,9 @@ private: System::Void textBox5_KeyDown(System::Object^ sender, System::Windows::
 }
 private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	this->textBox3->Text = A->ToString();
-	this->textBox9->Text = A->ToString_m();
+	this->textBox9->Text = Convert::ToString(A->M);
 	this->textBox8->Text = B->ToString();
-	this->textBox10->Text = B->ToString_m();
+	this->textBox10->Text = Convert::ToString(B->M);
 	this->textBox13->Text = Convert::ToString(A->Distance());
 	this->textBox12->Text = Convert::ToString(B->Distance());
 	if (A < B) { this->textBox11->Text = "<"; }
@@ -643,5 +651,19 @@ private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) 
 
 
 
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (textBox15->Text != "" && textBox14->Text != "" && textBox16->Text != "") //Второе условие, чтобы не было исключений,
+	{
+		value->X = Convert::ToDouble(this->textBox15->Text);
+		value->Y = Convert::ToDouble(this->textBox14->Text);
+		value->M = Convert::ToDouble(this->textBox16->Text);
+		if (C->add(value))
+		{
+			this->textBox17->Text = Convert::ToString(C->find_max()->ToString());
+			this->textBox18->Text = Convert::ToString(C->find_max()->M);
+		}
+		C->View(dataGridView1);
+	}
+}
 };
 }
